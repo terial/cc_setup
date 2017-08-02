@@ -27,5 +27,5 @@ sudo mkdir ~/GitHub
 cd GitHub
 
 ```
-$ sudo git-clone https://github.com/terial/cc_setup.git
+$ sudo git clone https://github.com/terial/cc_setup.git
 ```
