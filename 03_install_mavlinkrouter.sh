@@ -168,6 +168,9 @@ EOF
 # Copy preconfigured mavlink-router.conf to INSTALL_DIR/mavink-router/
 cp $SETUP_DIR/mavlink-router.conf $INSTALL_DIR/mavlink-router/mavlink-router.conf 
 
+# Create directory for mavlink-router dataflash logs
+mkdir /opt/log/dataflash
+
 # Create systemd unit file
 cat > /etc/systemd/system/mavlink-router.service <<EOF
 [Unit]
