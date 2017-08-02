@@ -191,3 +191,4 @@ EOF
 # Create symlink and reload systemctl and start mavink-router
 systemctl daemon-reload
 systemctl start mavlink-router.service
+systemctl status mavlink-router.service -l
