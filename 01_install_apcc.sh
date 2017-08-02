@@ -30,6 +30,16 @@ export INSTALL_USER=$INSTALL_USER
 export INSTALL_DIR=$INSTALL_DIR
 EOF
 
+# Disable built in bluetooth and enabl UART on /dev/tty/AMA0
+systemctl disable hciuart
+cat >> /boot/config.txt <<EOF
+# Disable bluetooth and enable /dev/ttyAMA0 on UART
+dtoverlay=pi3-disable-bt
+
+# Enable UART
+enable_uart=1
+EOF
+
 # Update packages
 sudo apt-get update
 
@@ -38,23 +48,3 @@ sudo apt-get update
 
 # Install mavlink-router
 . $SETUP_DIR/03_install_mavlinkrouter.sh
-
-# Install  cmavnode
-#. $SETUP_DIR/04_install_cmavnode.sh
-
-# Install mavproxy
-#. $SETUP_DIR/03_install_mavproxy.sh
-
-# Install dataflash logger
-# Install dataflash logger
-#. $SETUP_DIR/04_install_dflogger.sh
-	
-# Install wifibroadcast
-#. $SETUP_DIR/06_install_wifibroadcast.sh
-
-#. $SETUP_DIR/07_install_video.sh
-	
-
-
-
-
