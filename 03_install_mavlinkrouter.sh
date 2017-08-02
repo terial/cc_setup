@@ -169,6 +169,7 @@ EOF
 cp $SETUP_DIR/mavlink-router.conf $INSTALL_DIR/mavlink-router/mavlink-router.conf 
 
 # Create directory for mavlink-router dataflash logs
+mkdir /opt/log
 mkdir /opt/log/dataflash
 
 # Create systemd unit file
