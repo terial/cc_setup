@@ -5,7 +5,7 @@ sudo adduser <username>
 sudo passwd <username>
 
 #Add user to groups
-s udo adduser <username> pi adm dialout cdrom sudo audio video plugdev games users netdev input indiecity
+sudo adduser <username> pi adm dialout cdrom sudo audio video plugdev games users netdev input
 
 #Change hostname and expand file system
 sudo raspi-config
