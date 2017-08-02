@@ -25,4 +25,7 @@ sudo apt-get update
 sudo apt-get install -y git
 sudo mkdir ~/GitHub
 cd GitHub
-sudo git clone <repository link>
+
+```
+$ wget https://raw.githubusercontent.com/gonzalo/gphoto2-updater/master/gphoto2-updater.sh && chmod +x gphoto2-updater.sh && sudo ./gphoto2-updater.sh
+```
