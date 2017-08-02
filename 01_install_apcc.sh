@@ -48,3 +48,6 @@ sudo apt-get update
 
 # Install mavlink-router
 . $SETUP_DIR/03_install_mavlinkrouter.sh
+
+# Install Samba
+. $SETUP_DIR/04_install_samba.sh
