@@ -43,3 +43,10 @@ directory mask = 0775
 Public = no
 Guest ok = no
 EOF
+
+# Create user for Samba
+read -p "Enter a username for Samba:" USERNAME)SAMBA
+smbpasswd -a $USERNAME_SAMBA
+
+# Restart Samba
+/etc/init.d/samba restart
