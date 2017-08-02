@@ -45,7 +45,7 @@ Guest ok = no
 EOF
 
 # Create user for Samba
-read -p "Enter a username for Samba:" USERNAME)SAMBA
+read -p "Enter a username for Samba:" USERNAME_SAMBA
 smbpasswd -a $USERNAME_SAMBA
 
 # Restart Samba
