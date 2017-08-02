@@ -33,6 +33,7 @@ EOF
 # Disable built in bluetooth and enabl UART on /dev/tty/AMA0
 systemctl disable hciuart
 cat >> /boot/config.txt <<EOF
+
 # Disable bluetooth and enable /dev/ttyAMA0 on UART
 dtoverlay=pi3-disable-bt
 
