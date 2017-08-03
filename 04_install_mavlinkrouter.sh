@@ -169,6 +169,14 @@ EOF
 cp $SETUP_DIR/mavlink-router.conf $INSTALL_DIR/mavlink-router/mavlink-router.conf 
 
 # Create directory for mavlink-router dataflash logs
+if [ ! -d /opt/log ]; then
+   echo "No existing log directory"
+else
+    echo "log directory already exists!"
+    echo "cleaning existing log directory!"
+    rm -rf /opt/log
+fi
+
 # and set permissions to allow r+w
 mkdir /opt/log
 mkdir /opt/log/dataflash
