@@ -57,6 +57,9 @@ fi
 # Update packages
 sudo apt-get update
 
+# Make sure install shell scripts are executable
+chmod 755 *.sh
+
 # Install required packages and librarios
 . $SETUP_DIR/02_install_libraries.sh
 
