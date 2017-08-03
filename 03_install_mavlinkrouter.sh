@@ -169,8 +169,10 @@ EOF
 cp $SETUP_DIR/mavlink-router.conf $INSTALL_DIR/mavlink-router/mavlink-router.conf 
 
 # Create directory for mavlink-router dataflash logs
+# and set permissions to allow r+w
 mkdir /opt/log
 mkdir /opt/log/dataflash
+chown -R $INSTALL_USER/opt/log
 
 # Create systemd unit file
 cat > /etc/systemd/system/mavlink-router.service <<EOF
