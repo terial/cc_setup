@@ -15,11 +15,9 @@ set -x
 # Set location of installation scripts
 SETUP_DIR=$(pwd)
 
-# Get current user and directory of scripts
-read -p "Enter the working username: " INSTALL_USER
-read -p "Enter the root directory for packages(/opt): " INSTALL_DIR
-echo "Current user is $INSTALL_USER"
-echo "Running installation scripts from $INSTALL_DIR..."
+# Define the user and directory for installation
+INSTALL_USER=admin
+INSTALL_DIR=/opt
 
 # Create config.env
 cat > config.env <<EOF
@@ -32,14 +30,29 @@ EOF
 
 # Disable built in bluetooth and enabl UART on /dev/tty/AMA0
 systemctl disable hciuart
-cat >> /boot/config.txt <<EOF
+# Check if bluetooth is disabled, if not append /boot to disable
+if grep -q dtoverlay=pi3-disable-bt "/boot/config.txt"; then
+   echo "bluetooth already disabled"
+   else
+   cat >> /boot/config.txt <<EOF
 
 # Disable bluetooth and enable /dev/ttyAMA0 on UART
 dtoverlay=pi3-disable-bt
+EOF
+   echo "bluetooth set to disabled in /boot/config.txt"
+fi
 
-# Enable UART
+# Check if UART is enabled in /boot/config.txt
+if grep -q enable_uart=1 "/boot/config.txt"; then
+   echo "UART is already enabled"
+   else
+   cat >> /boot/config.txt <<EOF
+
+# Enable UART on /dev/tty/AMA0
 enable_uart=1
 EOF
+   echo "UART enabled on /dev/ttyAMA0"
+fi
 
 # Update packages
 sudo apt-get update
