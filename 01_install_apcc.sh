@@ -68,3 +68,6 @@ sudo apt-get update
 
 # Install Samba
 . $SETUP_DIR/05_install_samba.sh
+
+# Install video packages
+. $SETUP_DIR/06_install_video.sh
