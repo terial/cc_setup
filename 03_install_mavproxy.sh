@@ -27,7 +27,7 @@ sudo apt-get install -y \
 	python-numpy \
 	python-dev \
 	libxml2-dev \
-	libxslt-dev \
+	libxslt-dev
 pip install future
 pip install pymavlink
 pip install mavproxy
