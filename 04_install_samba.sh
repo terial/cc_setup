@@ -19,7 +19,6 @@ sudo apt-get install -y samba samba-common-bin
 
 # Append /etc/samba/smb.conf to configure shares
 #Share for /boot and /opt/log
-chmod 755 -R /opt/log
 cat >> /etc/samba/smb.conf <<EOF
 [Boot]
 Comment = Boot
@@ -27,8 +26,8 @@ Path = /boot/
 Browseable = yes
 Writeable = Yes
 only guest = no
-create mask = 0775
-directory mask = 0775
+create mask = 0777
+directory mask = 0777
 Public = no
 Guest ok = no
 
@@ -38,8 +37,8 @@ Path = /opt/log/
 Browseable = yes
 Writeable = Yes
 only guest = no
-create mask = 0775
-directory mask = 0775
+create mask = 0777
+directory mask = 0777
 Public = no
 Guest ok = no
 EOF
@@ -50,3 +49,6 @@ smbpasswd -a $USERNAME_SAMBA
 
 # Restart Samba
 /etc/init.d/samba restart
+
+# Samba installation finished
+echo "Samba installed and running!"
