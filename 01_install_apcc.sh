@@ -71,3 +71,6 @@ sudo apt-get update
 
 # Install video packages
 . $SETUP_DIR/06_install_video.sh
+
+# Install wifibroadcasts
+. $SETUP_DIR/07_install_wifib.sh
