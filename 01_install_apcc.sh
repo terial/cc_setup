@@ -60,8 +60,11 @@ sudo apt-get update
 # Install required packages and librarios
 . $SETUP_DIR/02_install_libraries.sh
 
+# Install MAVProxy
+. $SETUP_DIR/03_install_mavproxy.sh
+
 # Install mavlink-router
-. $SETUP_DIR/03_install_mavlinkrouter.sh
+. $SETUP_DIR/04_install_mavlinkrouter.sh
 
 # Install Samba
-. $SETUP_DIR/04_install_samba.sh
+. $SETUP_DIR/05_install_samba.sh
