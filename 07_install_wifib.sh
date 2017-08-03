@@ -12,15 +12,13 @@ set -e
 set -x
 
 # Get confige stuff
-#. $SETUP_DIR/config.env # Uncomment if part of the master companion computer install
+. $SETUP_DIR/config.env 
 
 # Install directory for wifibroadcast
 DIR_INSTALL_WIFIBROADCAST=$INSTALL_DIR/wifibroadcast
 
 # Get updated and install packages
 echo "Updating repository and installing required packages..."
-apt-get update
-apt-get install -y git
 apt-get install -y libpcap0.8-dev # For wifibroadcast core 
 apt-get install -y wiringpi # For wifibroadcast core
 apt-get install -y libjpeg8-dev indent libfreetype6-dev ttf-dejavu-core # Needed DejaVu fonts, and the jpeg and freetype libraries for OpenVG
