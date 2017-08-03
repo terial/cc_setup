@@ -44,8 +44,7 @@ Guest ok = no
 EOF
 
 # Create user for Samba
-read -p "Enter a username for Samba:" USERNAME_SAMBA
-smbpasswd -a $USERNAME_SAMBA
+smbpasswd -a $INSTALL_USER
 
 # Restart Samba
 /etc/init.d/samba restart
