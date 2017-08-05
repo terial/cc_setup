@@ -54,6 +54,9 @@ EOF
    echo "UART enabled on /dev/ttyAMA0"
 fi
 
+# Create directories for files and logging, accessible by Samba
+mkdir/opt /opt/log /opt/log/dataflash /opt/log/services
+
 # Update packages
 sudo apt-get update
 
