@@ -44,18 +44,20 @@ read one five fifteen rest < /proc/loadavg
 # Clear screen
 clear
 
+echo "${bgb}${bold}===================== ArduPilot Flight Computer ===================${reset}"
+echo
 # Print stats
-	echo "`date +"%A, %e %B %Y, %r"`"
-	echo "`uname -srmo`"
-	echo
-	echo "Last Login.........: ${login}"
-	echo
-	echo "Uptime.............: ${UPTIME}"
-	echo "Temperature........: $(/opt/vc/bin/vcgencmd measure_temp | cut -c "6-9")ยบC"
-	echo "Load Averages......: ${one}, ${five}, ${fifteen} (1, 5, 15 min)"
-	echo "Memory.............: $(free -m | awk 'NR==2 { printf "Total: %sMB, Used: %sMB, Free: %sMB",$2,$3,$4; }')"
-	echo "Running Processes..: `ps ax | wc -l | tr -d " "`"
-	echo "eth0 IP Address....: `/sbin/ifconfig eth0 | /bin/grep "inet addr" | /usr/bin/cut -d ":" -f 2 | /usr/bin/cut -d " " -f 1`"
-	echo "wlan0 IP Address...: `/sbin/ifconfig wlan0 | /bin/grep "inet addr" | /usr/bin/cut -d ":" -f 2 | /usr/bin/cut -d " " -f 1`"
-	echo "wlan1 IP Address...: `/sbin/ifconfig wlan1 | /bin/grep "inet addr" | /usr/bin/cut -d ":" -f 2 | /usr/bin/cut -d " " -f 1`"
-	echo "Storage Space......: $(df -h ~ | awk 'NR==2 { printf "Total: %sB, Used: %sB, Free: %sB",$2,$3,$4; }')"
+echo "		${green}`date +"%A, %e %B %Y, %r"`${reset}"
+echo "		${green}`uname -srmo`${reset}"
+echo
+echo "			Last Login.........: ${login}"
+echo "${bgr}${bold}======================== System Information =======================${reset}"
+echo "Uptime.............: ${UPTIME}"
+echo "Temperature........: $(/opt/vc/bin/vcgencmd measure_temp | cut -c "6-9")ยบC"
+echo "Load Averages......: ${one}, ${five}, ${fifteen} (1, 5, 15 min)"
+echo "Memory.............: $(free -m | awk 'NR==2 { printf "Total: %sMB, Used: %sMB, Free: %sMB",$2,$3,$4; }')"
+echo "Running Processes..: `ps ax | wc -l | tr -d " "`"
+echo "eth0 IP Address....: `/sbin/ifconfig eth0 | /bin/grep "inet addr" | /usr/bin/cut -d ":" -f 2 | /usr/bin/cut -d " " -f 1`"
+echo "wlan0 IP Address...: `/sbin/ifconfig wlan0 | /bin/grep "inet addr" | /usr/bin/cut -d ":" -f 2 | /usr/bin/cut -d " " -f 1`"
+echo "wlan1 IP Address...: `/sbin/ifconfig wlan1 | /bin/grep "inet addr" | /usr/bin/cut -d ":" -f 2 | /usr/bin/cut -d " " -f 1`"
+echo "Storage Space......: $(df -h ~ | awk 'NR==2 { printf "Total: %sB, Used: %sB, Free: %sB",$2,$3,$4; }')"
