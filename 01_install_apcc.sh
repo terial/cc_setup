@@ -54,6 +54,10 @@ EOF
    echo "UART enabled on /dev/ttyAMA0"
 fi
 
+# Copy login script
+cp $SETUP_DIR.motd.sh /etc/profile.d/motd.sh
+chmod 755 /etc/profile.d/motd.sh
+
 # Create directories for files and logging, accessible by Samba
 mkdir/opt /opt/log /opt/log/dataflash /opt/log/services
 
