@@ -40,7 +40,7 @@ fi
 make DESTDIR=$INSTALL_DIR/mavlink-router/ install
 
 # Create a template config based of mavlink-router sample
-cat > $INSTALL_DIR/mavlink-router/config.sample <<EOF
+cat > $INSTALL_DIR/mavlink-router/mavlink-router.conf.sample <<EOF
 # mavlink-router configuration file is composed of sections,
 # each section has some keys and values. They
 # are case insensitive, so `Key=Value` is the same as `key=value`.
@@ -166,7 +166,32 @@ RetryTimeout=10
 EOF
 
 # Copy preconfigured mavlink-router.conf to INSTALL_DIR/mavink-router/
-cp $SETUP_DIR/mavlink-router.conf $INSTALL_DIR/mavlink-router/mavlink-router.conf 
+cp $SETUP_DIR/mavlink-router.conf /boot/mavlink-router.txt 
+
+# Create mavlink-router start script
+cat > $INSTALL_DIR/mavlink-router/mavlink-router.sh <<EOF
+#!/bin/bash
+#
+
+# Mavlink-router
+MAVLINK_ROUTER_DIR=/opt/mavlink-router
+MAVLINK_ROUTER_EXEC=/opt/mavlink-router/usr/bin
+MAVLINK_ROUTER_CONF=/opt/mavlink-router
+MAVLINK_ROUTER_LOG=/opt/log/services
+
+# Get mavlink-router.txt from /boot and conver to MAVLINK_ROUTER_DIR/mavlink-router.conf
+DETECT_CONF=`ls /boot | grep -c mavlink-router.txt`
+if [ "$DETECT_CONF" == "0" ]; then
+echo "No configuration file found for mavlink-router!"
+exit 1
+else
+echo "Getting configuration file.."
+dos2unix -n /boot/mavlink-router.txt $MAVLINK_ROUTER_CONF/mavlink-router.conf
+fi
+
+# Start Mavlink-router
+$MAVLINK_ROUTER_EXEC/mavlink-routerd -c $MAVLINK_ROUTER_CONF/mavlink-router.conf > $MAVLINK_ROUTER_LOG/start_mavlink-router.log 2>&1
+EOF
 
 # Create directory for mavlink-router dataflash logs
 if [ ! -d /opt/log ]; then
@@ -189,7 +214,7 @@ Description=MAVLink Router
 
 [Service]
 Type=simple
-ExecStart=/opt/mavlink-router/usr/bin/mavlink-routerd -c /opt/mavlink-router/mavlink-router.conf
+ExecStart=/opt/mavlink-router/start_mavlink-router.sh
 ExecReload=/bin/kill -HUP $MAINPID
 Restart=on-failure
 
