@@ -61,3 +61,8 @@ echo "eth0 IP Address....: `/sbin/ifconfig eth0 | /bin/grep "inet addr" | /usr/b
 echo "wlan0 IP Address...: `/sbin/ifconfig wlan0 | /bin/grep "inet addr" | /usr/bin/cut -d ":" -f 2 | /usr/bin/cut -d " " -f 1`"
 echo "wlan1 IP Address...: `/sbin/ifconfig wlan1 | /bin/grep "inet addr" | /usr/bin/cut -d ":" -f 2 | /usr/bin/cut -d " " -f 1`"
 echo "Storage Space......: $(df -h ~ | awk 'NR==2 { printf "Total: %sB, Used: %sB, Free: %sB",$2,$3,$4; }')"
+echo
+echo "${bgr}${bold}================== Companion Computer Information ====+=============${reset}"
+echo "Mavlink-Router service logging dataflash to /opt/log/dataflash and accessible with Samba (R+W)"
+echo "Flight components logging to /opt/log/services and accessible with Samba (RO)"
+echo "Configuration files must be edited on /boot"
