@@ -40,7 +40,7 @@ fi
 make DESTDIR=$INSTALL_DIR/mavlink-router/ install
 
 # Create a template config based of mavlink-router sample
-cat > $INSTALL_DIR/mavlink-router/mavlink-router.conf.sample <<EOF
+cat > $INSTALL_DIR/mavlink-router/mavlink-router.conf.sample << \EOF
 # mavlink-router configuration file is composed of sections,
 # each section has some keys and values. They
 # are case insensitive, so `Key=Value` is the same as `key=value`.
@@ -169,7 +169,7 @@ EOF
 cp $SETUP_DIR/mavlink-router.conf /boot/mavlink-router.txt 
 
 # Create mavlink-router start script
-cat > $INSTALL_DIR/mavlink-router/start_mavlink-router.sh <<EOF
+cat > $INSTALL_DIR/mavlink-router/start_mavlink-router.sh << \EOF
 #!/bin/bash
 #
 
@@ -209,7 +209,7 @@ chmod +x $INSTALL_DIR/mavlink-router/start_mavlink-router.sh
    mkdir /opt/log/services
 
 # Create systemd unit file
-cat > /etc/systemd/system/mavlink-router.service <<EOF
+cat > /etc/systemd/system/mavlink-router.service < \<EOF
 [Unit]
 Description=MAVLink Router
 
