@@ -28,31 +28,35 @@ export INSTALL_USER=$INSTALL_USER
 export INSTALL_DIR=$INSTALL_DIR
 EOF
 
+# The following lines have been commented, use modified config.txt instead
 # Disable built in bluetooth and enabl UART on /dev/tty/AMA0
-systemctl disable hciuart
+#systemctl disable hciuart
 # Check if bluetooth is disabled, if not append /boot to disable
-if grep -q dtoverlay=pi3-disable-bt "/boot/config.txt"; then
-   echo "bluetooth already disabled"
-   else
-   cat >> /boot/config.txt <<EOF
+#if grep -q dtoverlay=pi3-disable-bt "/boot/config.txt"; then
+#   echo "bluetooth already disabled"
+#   else
+#   cat >> /boot/config.txt <<EOF
 
-# Disable bluetooth and enable /dev/ttyAMA0 on UART
-dtoverlay=pi3-disable-bt
-EOF
-   echo "bluetooth set to disabled in /boot/config.txt"
-fi
+## Disable bluetooth and enable /dev/ttyAMA0 on UART
+#dtoverlay=pi3-disable-bt
+#EOF
+#   echo "bluetooth set to disabled in /boot/config.txt"
+#fi
 
 # Check if UART is enabled in /boot/config.txt
-if grep -q enable_uart=1 "/boot/config.txt"; then
-   echo "UART is already enabled"
-   else
-   cat >> /boot/config.txt <<EOF
+#if grep -q enable_uart=1 "/boot/config.txt"; then
+#   echo "UART is already enabled"
+#   else
+#   cat >> /boot/config.txt <<EOF
 
 # Enable UART on /dev/tty/AMA0
-enable_uart=1
-EOF
-   echo "UART enabled on /dev/ttyAMA0"
-fi
+#enable_uart=1
+#EOF
+#   echo "UART enabled on /dev/ttyAMA0"
+#fi
+
+# Copy modified config.txt to /boot
+cp $SETUP_DIR/config.txt /boot/config.txt
 
 # Copy login script
 # http://daroude.at/uncategorized/lets-change-the-motd-of-our-raspberry-pi/
