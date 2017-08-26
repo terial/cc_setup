@@ -169,7 +169,7 @@ EOF
 cp $SETUP_DIR/mavlink-router.conf /boot/mavlink-router.txt 
 
 # Create mavlink-router start script
-cat > $INSTALL_DIR/mavlink-router/mavlink-router.sh <<EOF
+cat > $INSTALL_DIR/mavlink-router/start_mavlink-router.sh <<EOF
 #!/bin/bash
 #
 
