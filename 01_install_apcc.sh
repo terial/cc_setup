@@ -63,9 +63,6 @@ cp $SETUP_DIR/config.txt /boot/config.txt
 cp $SETUP_DIR/motd.sh /etc/profile.d/motd.sh
 chmod 755 /etc/profile.d/motd.sh
 
-# Create directories for files and logging, accessible by Samba
-mkdir /opt /opt/log /opt/log/dataflash /opt/log/services
-
 # Update packages
 sudo apt-get update
 
