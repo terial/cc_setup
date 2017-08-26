@@ -26,6 +26,7 @@ apt-get purge -y modemmanager
 # Install_required libraries and packages
 echo "Installing required libraries and packages, this may take a while..."
 apt-get install -y \
+	dos2unix \
 	autoconf \
 	avahi-daemon \
 	strace \
