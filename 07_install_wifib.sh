@@ -12,7 +12,7 @@ set -e
 set -x
 
 # Get confige stuff
-. $SETUP_DIR/config.env 
+. config.env 
 
 # Install directory for wifibroadcast
 DIR_INSTALL_WIFIBROADCAST=$INSTALL_DIR/wifibroadcast
