@@ -11,7 +11,7 @@ set -e
 set -x
 
 # Get confige stuff
-. $SETUP_DIR/config.env
+. config.env
 
 # Start installation of MAVlink
 echo "Starting installation for MAVLink"
