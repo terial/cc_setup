@@ -55,7 +55,7 @@ EOF
 fi
 
 # Copy login script
-cp $SETUP_DIR.motd.sh /etc/profile.d/motd.sh
+cp $SETUP_DIR/motd.sh /etc/profile.d/motd.sh
 chmod 755 /etc/profile.d/motd.sh
 
 # Create directories for files and logging, accessible by Samba
