@@ -193,6 +193,8 @@ fi
 $MAVLINK_ROUTER_EXEC/mavlink-routerd -c $MAVLINK_ROUTER_CONF/mavlink-router.conf > $MAVLINK_ROUTER_LOG/start_mavlink-router.log 2>&1
 EOF
 
+chmod +x $INSTALL_DIR/mavlink-router/start_mavlink-router.sh
+
 # Create directory for mavlink-router dataflash logs
 if [ ! -d /opt/log ]; then
    echo "No existing log directory"
