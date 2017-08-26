@@ -18,6 +18,7 @@ echo "Starting installation of Samba"
 sudo apt-get install -y samba samba-common-bin
 
 # Append /etc/samba/smb.conf to configure shares
+# may need additional changes to cmb.conf per https://raspberrypihq.com/how-to-share-a-folder-with-a-windows-computer-from-a-raspberry-pi/
 #Share for /boot and /opt/log
 cat >> /etc/samba/smb.conf <<EOF
 [Boot]
