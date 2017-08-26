@@ -196,19 +196,18 @@ EOF
 chmod +x $INSTALL_DIR/mavlink-router/start_mavlink-router.sh
 
 # Create directory for mavlink-router dataflash logs
-if [ ! -d /opt/log ]; then
+   if [ ! -d /opt/log ]; then
    echo "No existing log directory"
-else
+   else
     echo "log directory already exists!"
     echo "cleaning existing log directory!"
     rm -rf /opt/log
-fi
-
-# and set permissions to allow r+w
-mkdir /opt/log
-mkdir /opt/log/dataflash
-mkdir /opt/log/services
-chown -R $INSTALL_USER /opt/log
+   fi
+   # and set permissions to allow r+w
+   mkdir /opt/log
+   mkdir /opt/log/dataflash
+   mkdir /opt/log/services
+   chown -R $INSTALL_USER /opt/log/dataflash
 
 # Create systemd unit file
 cat > /etc/systemd/system/mavlink-router.service <<EOF
