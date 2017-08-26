@@ -11,7 +11,7 @@ set -e
 set -x
 
 # Get confige stuff
-. $SETUP_DIR/config.env
+. /config.env
 
 # Check if GitHub folder already exists
 if [ ! -d /home/$INSTALL_USER/GitHub ]; then
@@ -209,7 +209,7 @@ chmod +x $INSTALL_DIR/mavlink-router/start_mavlink-router.sh
    mkdir /opt/log/services
 
 # Create systemd unit file
-cat > /etc/systemd/system/mavlink-router.service < \<EOF
+cat > /etc/systemd/system/mavlink-router.service << \EOF
 [Unit]
 Description=MAVLink Router
 
