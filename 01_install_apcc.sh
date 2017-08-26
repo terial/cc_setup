@@ -55,6 +55,7 @@ EOF
 fi
 
 # Copy login script
+# http://daroude.at/uncategorized/lets-change-the-motd-of-our-raspberry-pi/
 cp $SETUP_DIR/motd.sh /etc/profile.d/motd.sh
 chmod 755 /etc/profile.d/motd.sh
 
