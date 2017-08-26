@@ -207,7 +207,6 @@ chmod +x $INSTALL_DIR/mavlink-router/start_mavlink-router.sh
    mkdir /opt/log
    mkdir /opt/log/dataflash
    mkdir /opt/log/services
-   chown -R $INSTALL_USER /opt/log/dataflash
 
 # Create systemd unit file
 cat > /etc/systemd/system/mavlink-router.service <<EOF
