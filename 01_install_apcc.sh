@@ -83,4 +83,4 @@ chmod 755 *.sh
 . $SETUP_DIR/06_install_video.sh
 
 # Install wifibroadcasts
-. $SETUP_DIR/07_install_wifib.sh
+#. $SETUP_DIR/07_install_wifib.sh
