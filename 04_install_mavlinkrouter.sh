@@ -205,6 +205,7 @@ fi
 # and set permissions to allow r+w
 mkdir /opt/log
 mkdir /opt/log/dataflash
+mkdir /opt/log/services
 chown -R $INSTALL_USER /opt/log
 
 # Create systemd unit file
