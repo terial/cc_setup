@@ -45,7 +45,7 @@ EOF
 
 # Set permissions for shared directories
 chown -R $INSTALL_USER /opt/log/dataflash # Allows users to delete dataflash logs
-chown -R $INSTALL_USER /boot # Allows users to configure without removing SD card
+#chown -R $INSTALL_USER /boot # Allows users to configure without removing SD card
 
 # Create user for Samba
 smbpasswd -a $INSTALL_USER
