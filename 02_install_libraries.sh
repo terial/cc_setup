@@ -59,7 +59,6 @@ apt-get install -y \
 	ttf-dejavu-core \
 	build-essential \
 	libjsoncpp-dev \
-	#libjsoncpp0 \
 	python-dev \
 	python-numpy \
 	python3-numpy \
