@@ -40,3 +40,35 @@ cd /home/$INSTALL_USER/GitHub
 git clone git://github.com/c9/core.git c9sdk
 cd c9sdk
 scripts/install-sdk.sh
+
+cp -r /home/$INSTALL_USER/GitHub/c9sdk $INSTALL_DIR/c9sdk
+
+# Create startup script
+cat > $INSTALL_DIR/c9sdk/start_c9sdk.sh << \EOF
+#!/bin/bash
+#
+
+set -e
+set -x
+
+DIR_C9SDK=/opt/c9sdk
+
+# Get mavlink-router.txt from /boot and conver to MAVLINK_ROUTER_DIR/mavlink-router.conf
+DETECT_CONF=`ls /boot | grep -c c9sdk.txt`
+if [ "$DETECT_CONF" == "0" ]; then
+echo "No configuration file found for Cloud9 SDK!"
+exit 1
+else
+echo "Getting configuration file.."
+dos2unix -n /boot/c9sdk.txt $DIR_C9SDK/c9sdk.conf
+fi
+
+# Get configuration
+. $DIR_C9SDK/c9sdk.conf
+
+# Start Cloud 9 SDK
+EXEC_CMD=. $DIR_C9SDK/server.js -w $WORKSPACE -p $PORT -l $IP -a $USER:$PASSWD > /opt/log/services/start_c9sdk.log 2>&1
+EOF
+
+# change permissions to startc9sdk.sh
+chmod +x $INSTALL_DIR/c9sdk/start_c9sdk.sh
