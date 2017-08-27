@@ -11,7 +11,7 @@ set -e
 set -x
 
 # Get confige stuff
-. /config.env
+. config.env
 
 # Check if GitHub folder already exists
 if [ ! -d /home/$INSTALL_USER/GitHub ]; then
