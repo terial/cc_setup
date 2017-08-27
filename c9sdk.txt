@@ -1,0 +1,9 @@
+#!/bin/bash
+#
+USER=admin
+PASSWD=flight01
+
+PORT=8080
+IP=0.0.0.0
+
+WORKSPACE=/home/admin
