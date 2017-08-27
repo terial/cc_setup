@@ -56,6 +56,8 @@ EOF
 #fi
 
 # Copy modified config.txt to /boot
+cp /boot/config.txt /boot/config.txt.bak
+rm -rf /boot/config.txt
 cp $SETUP_DIR/config.txt /boot/config.txt
 
 # Copy login script
