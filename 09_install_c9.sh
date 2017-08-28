@@ -72,3 +72,24 @@ EOF
 
 # change permissions to startc9sdk.sh
 chmod +x $INSTALL_DIR/c9sdk/start_c9sdk.sh
+
+# Create systemd unit file
+cat > /etc/systemd/system/cloud9.service << \EOF
+[Unit]
+Description=Cloud9 Development Environment
+After=network.target
+
+[Service]
+Type=simple
+ExecStart=/opt/c9sdk/start_c9sdk.sh
+ExecReload=/bin/kill -HUP $MAINPID
+Restart=always
+
+[Install]
+WantedBy=multi-user.target
+Alias=cloud9.service
+EOF
+
+systemctl daemon-reload
+systemctl start cloud9.service
+systemctl status cloud9.service -l
