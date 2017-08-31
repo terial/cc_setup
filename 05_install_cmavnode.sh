@@ -96,7 +96,7 @@ $CMAVNODE_DIR/cmavnode -i -f $CMAVNODE_DIR/cmavnode.conf > $CMAVNODE_LOG/start_c
 EOF
 
 # add execute permissions to start_cmavnode.sh
-chmod +x $INSTALL_DIR/$CMAVNODE_DIR/start_cmavnode.sh
+chmod +x $INSTALL_DIR/cmavnode/start_cmavnode.sh
 
 # Create directory for mavlink-router dataflash logs
    if [ ! -d /opt/log ]; then
