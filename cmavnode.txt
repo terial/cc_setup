@@ -1,23 +1,23 @@
-[aseriallink]
+[Serial Telemetry]
     type=serial
     port=/dev/ttyAMA0
     baud=921600
     sim_enable=false
 
-[to_mavproxy]
+[UDP to MAVProxy]
     type=udp
     targetip=127.0.0.1
     targetport=14655
     localport=14656
     sim_enable=false
 
-[to_dflogger]
+[UDP to dflogger]
     type=udp
     targetip=127.0.0.1
     targetport=14555
     localport=14556
     sim_enable=false
 
-[to_14550]
+[UDP Server to GCS Port 14550]
     type=socket
     localport=14550
