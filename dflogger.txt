@@ -1,0 +1,9 @@
+[dflogger]
+log_dirpath=/opt/log/dataflash
+
+[solo]
+#telemDev=/dev/ttyTHS1
+#telemFlow=false
+#telemBaud=921600
+telem_forward_port=14556
+soloIP=127.0.0.1
