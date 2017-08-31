@@ -45,7 +45,7 @@ make
 
 # Copy cmavnode, config file sample and start script to $INSTALL_DIR/cmavnode
 mkdir $INSTALL_DIR/cmavnode
-cp /home/$INSTALL_USER/GitHub/cmavnode/build/cmavnode $SETUP_DIR/cmavnode/cmavnode
+cp /home/$INSTALL_USER/GitHub/cmavnode/build/cmavnode $INSTALL_DIR/cmavnode/cmavnode
 
 cat > $INSTALL_DIR/cmavnode/cmavnode.conf.sample << \EOF
 #[aseriallink]
@@ -69,7 +69,7 @@ cat > $INSTALL_DIR/cmavnode/cmavnode.conf.sample << \EOF
     localport=14556
 EOF
 
-# Copy preconfigured mavlink-router.conf to INSTALL_DIR/mavink-router/
+# Copy preconfigured cmavnode.txt to /boot/cmavnode.txt
 cp $SETUP_DIR/cmavnode.txt /boot/cmavnode.txt 
 
 # Create cmavnode start script
@@ -101,8 +101,9 @@ chmod +x $INSTALL_DIR/$CMAVNODE_DIR/start_cmavnode.sh
 # Create directory for mavlink-router dataflash logs
    if [ ! -d /opt/log ]; then
    echo "No existing log directory"
-   else
    mkdir /opt/log
+   else
+   echo "/opt/log already exists!"
    fi
 
 # Create systemd unit file
