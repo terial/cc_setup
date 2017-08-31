@@ -12,20 +12,17 @@ set -e
 set -x
 
 # Get confige stuff
-. $SETUP_DIR/config.env 
+. config.env 
 
-# Install directory for gphoto2
-#DIR_INSTALL_WIFIBROADCAST=$INSTALL_DIR/gphoto2
+# Check if GitHub folder already exists
+if [ ! -d /home/$INSTALL_USER/GitHub ]; then
+    mkdir /home/$INSTALL_USER/GitHub
+else
+    echo "$INSTALL_USER/GitHub already exists!"
+fi
 
-# Install required packaged
-# https://github.com/gphoto/libgphoto2/blob/master/INSTALL
-# https://github.com/gphoto/gphoto2/blob/master/README.md
-apt-get install -y /
-libexif-dev /
-libjpeg-dev /
-cdk-devel /
-libusb-1.0-0-dev /
-gtk-doc-tools /
-gettext
+# Get installation script
+mkdir /home/$INSTALL_USER/GitHub/gphoto2-updater
+cd /home/$INSTALL_USER/GitHub/gphoto2-updater
+wget https://raw.githubusercontent.com/gonzalo/gphoto2-updater/master/gphoto2-updater.sh && chmod +x gphoto2-updater.sh && sudo ./gphoto2-updater.sh
 
-#
