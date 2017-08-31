@@ -65,7 +65,7 @@ dos2unix -n /boot/dflogger.txt $DFLOGGER_DIR/dflogger.conf
 fi
 
 # Start dataflash_logger
-$DFLOGGER_DIR/dataflash_logger -d -c $DFLOGGER_DIR/dflogger.conf > $DFLOGGER_LOG/start_dflogger.log 2>&1
+$DFLOGGER_DIR/dataflash_logger -c $DFLOGGER_DIR/dflogger.conf > $DFLOGGER_LOG/start_dflogger.log 2>&1
 EOF
 
 # add execute permissions to start_dflogger.sh
