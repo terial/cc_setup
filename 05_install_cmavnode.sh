@@ -69,7 +69,7 @@ cat > $INSTALL_DIR/cmavnode/cmavnode.conf.sample << \EOF
     localport=14556
 EOF
 
-# Copy preconfigured cmavnode.txt to /boot/cmavnode.txt
+# Copy preconfigured cmavnode to INSTALL_DIR/cmavnoder/
 cp $SETUP_DIR/cmavnode.txt /boot/cmavnode.txt 
 
 # Create cmavnode start script
@@ -84,7 +84,7 @@ CMAVNODE_LOG=/opt/log/services
 # Get cmavnode.txt from /boot and conver to CMAVNODE_DIR/cmavnode.conf
 DETECT_CONF=`ls /boot | grep -c cmavnode.txt`
 if [ "$DETECT_CONF" == "0" ]; then
-echo "No configuration file found for mavlink-router!"
+echo "No configuration file found for cmavnode!"
 exit 1
 else
 echo "Getting configuration file.."
@@ -98,16 +98,8 @@ EOF
 # add execute permissions to start_cmavnode.sh
 chmod +x $INSTALL_DIR/cmavnode/start_cmavnode.sh
 
-# Create directory for mavlink-router dataflash logs
-   if [ ! -d /opt/log ]; then
-   echo "No existing log directory"
-   mkdir /opt/log
-   else
-   echo "/opt/log already exists!"
-   fi
-
 # Create systemd unit file
-cat > /etc/systemd/system/cmavnoder.service << \EOF
+cat > /etc/systemd/system/cmavnode.service << \EOF
 [Unit]
 Description=CMAVNode
 
@@ -122,8 +114,9 @@ WantedBy=multi-user.target
 Alias=cmavnode.service
 EOF
 
- Create symlink and reload systemctl and start mavink-router
+# Create symlink and reload systemctl and start cmavnode
 systemctl daemon-reload
 systemctl start cmavnode.service
 systemctl status cmavnode.service -l
+
 
