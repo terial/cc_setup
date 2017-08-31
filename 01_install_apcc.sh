@@ -80,11 +80,24 @@ chmod 755 *.sh
 # Install mavlink-router
 . $SETUP_DIR/04_install_mavlinkrouter.sh
 
+# Install cmavnode
+. $SETUP_DIR/05_install_cmavnode.sh
+
+# Install dflogger
+. $SETUP_DIR/06_install_dflogger.sh
+
 # Install Samba
-. $SETUP_DIR/05_install_samba.sh
+. $SETUP_DIR/07_install_samba.sh
 
 # Install video packages
-. $SETUP_DIR/06_install_video.sh
+. $SETUP_DIR/08_install_video.sh
 
-# Install wifibroadcasts
-#. $SETUP_DIR/07_install_wifib.sh
+# Install wifibroadcast
+. $SETUP_DIR/09_install_wifib.sh
+
+# Install libgphoto2
+#. $SETUP_DIR/10_install_libgphoto2.sh
+
+# Install cloud9 SDK
+#. $SETUP_DIR/11_install_c9.sh
+
