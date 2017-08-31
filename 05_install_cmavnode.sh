@@ -45,6 +45,7 @@ make
 
 # Copy cmavnode, config file sample and start script to $INSTALL_DIR/cmavnode
 cp /home/$INSTALL_USER/GitHub/cmavnode/build/cmavnode $INSTALL_DIR/cmavnode/cmavnode
+cp cmavnode.txt
 
 
 
