@@ -91,7 +91,7 @@ echo "Getting configuration file.."
 dos2unix -n /boot/cmavnode.txt $CMAVNODE_DIR/cmavnode.conf
 fi
 
-# Start Mavlink-router
+# Start cmavnode
 $CMAVNODE_DIR/cmavnode -i -f $CMAVNODE_DIR/cmavnode.conf > $CMAVNODE_LOG/start_cmavnode.log 2>&1
 EOF
 
