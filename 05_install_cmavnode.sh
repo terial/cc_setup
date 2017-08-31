@@ -35,13 +35,17 @@ fi
 # Clone repository and configure/build/install
 cd /home/$INSTALL_USER/GitHub
  rm -rf cmavnode
-https://github.com/MonashUAS/cmavnode.git
+git clone https://github.com/MonashUAS/cmavnode.git
 cd cmavnode
 git submodule update --init 
 mkdir build && cd build
 cmake ..
 make
 #sudo make install
+
+# Copy cmavnode, config file sample and start script to $INSTALL_DIR/cmavnode
+cp /home/$INSTALL_USER/GitHub/cmavnode/build/cmavnode $INSTALL_DIR/cmavnode/cmavnode
+
 
 
 
