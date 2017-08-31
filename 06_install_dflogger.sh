@@ -13,6 +13,9 @@ set -x
 # Get confige stuff
 . config.env
 
+# Get packages
+apt-get install -y libjsoncpp1 libjsoncpp0
+
 # Check if GitHub folder already exists
 if [ ! -d /home/$INSTALL_USER/GitHub ]; then
     mkdir /home/$INSTALL_USER/GitHub
