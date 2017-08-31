@@ -71,8 +71,8 @@ cp -a /home/$INSTALL_USER/GitHub/cc_wifib/wifibroadcast_status/. $DIR_INSTALL_WI
 
 # Using dos2unix, copy the configuration files from /boot and rename as needed
 # using flag -n will always write to a new file.
-dos2unix -n /boot/osdconfig.txt $DIR_INSTALL_WIFIBROADCAST/wifibroadcast_osd/osdconfig.h
-dos2unix -n /boot/joyconfig.txt $DIR_INSTALL_WIFIBROADCAST/wifibroadcast_rc/rctx.h > /dev/null 2>&1
+#dos2unix -n /boot/osdconfig.txt $DIR_INSTALL_WIFIBROADCAST/wifibroadcast_osd/osdconfig.h
+#dos2unix -n /boot/joyconfig.txt $DIR_INSTALL_WIFIBROADCAST/wifibroadcast_rc/rctx.h > /dev/null 2>&1
 #dos2unix -n /boot/apconfig.txt /tmp/apconfig.txt # unused until ap is setup
 
 # Build wifibroadcast
