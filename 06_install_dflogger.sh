@@ -86,7 +86,7 @@ Description=Data Flash Logger
 
 [Service]
 Type=simple
-ExecStart=/opt/dfloggerr/start_dflogger.sh
+ExecStart=/opt/dflogger/start_dflogger.sh
 ExecReload=/bin/kill -HUP $MAINPID
 Restart=on-failure
 
