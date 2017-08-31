@@ -12,7 +12,6 @@ set -x
 
 read -p "Enter new user name.." USER
 adduser $USER
-adduser $USER groups
 adduser $USER pi
 adduser $USER dialout
 adduser $USER adm
