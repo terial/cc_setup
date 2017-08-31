@@ -14,7 +14,7 @@ set -x
 . config.env
 
 # Get packages
-apt-get install -y libjsoncpp1 libjsoncpp0
+apt-get install -y libjsoncpp0
 
 # Check if GitHub folder already exists
 if [ ! -d /home/$INSTALL_USER/GitHub ]; then
@@ -23,7 +23,7 @@ else
     echo "$INSTALL_USER/GitHub already exists!"
 fi
 
-# Check if mavlink-router directory already exists at $INSTALL_DIR
+# Check if dflogger directory already exists at $INSTALL_DIR
 if [ ! -d $INSTALL_DIR/dflogger ]; then
    echo "No existing dflogger directory"
    mkdir $INSTALL_DIR/dflogger
@@ -42,16 +42,16 @@ make dataflash_logger
 cp dataflash_logger $INSTALL_DIR/dflogger/dataflash_logger
 
 
-# Copy preconfigured mavlink-router.conf to INSTALL_DIR/mavink-router/
+# Copy preconfigured dflogger to INSTALL_DIR/dflogger/
 cp $SETUP_DIR/dflogger.txt /boot/dflogger.txt 
 
-# Create mavlink-router start script
+# Create dflogger start script
 cat > $INSTALL_DIR/dflogger/start_dflogger.sh << \EOF
 #!/bin/bash
 #
 
 # dflogger
-DFLOGGER_DIR=/opt/mavlink-router
+DFLOGGER_DIR=/opt/dflogger
 DFLOGGER_LOG=/opt/log/services
 
 # Get dflogger.txt from /boot and conver to DFLOGGER_DIR/dflogger.conf
@@ -64,11 +64,11 @@ echo "Getting configuration file.."
 dos2unix -n /boot/dflogger.txt $DFLOGGER_DIR/dflogger.conf
 fi
 
-# Start Mavlink-router
-$DFLOGGER_DIR/data_flashlogger -d -c $DFLOGGER_DIR/dflogger.conf > $DFLOGGER_LOG/start_dflogger.log 2>&1
+# Start dataflash_logger
+$DFLOGGER_DIR/dataflash_logger -d -c $DFLOGGER_DIR/dflogger.conf > $DFLOGGER_LOG/start_dflogger.log 2>&1
 EOF
 
-add executible permissions
+# add execute permissions to start_dflogger.sh
 chmod +x $INSTALL_DIR/dflogger/start_dflogger.sh
 
 # Create directory for  dflogger logs
