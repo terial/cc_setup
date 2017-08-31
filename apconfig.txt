@@ -3,7 +3,7 @@ hw_mode=g
 #
 # Channels 1-11 for 2.4Ghz, Channels 36,40,44,48,52,56,60,64 for 5Ghz
 channel=1
-ssid=CHANGESSOD
+ssid=CHANGESSID
 wpa_passphrase=CHANGESSID
 #
 #
