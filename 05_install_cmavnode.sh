@@ -20,6 +20,15 @@ else
     echo "$INSTALL_USER/GitHub already exists!"
 fi
 
+# Check if cmavnode directory already exists at $INSTALL_DIR
+if [ ! -d $INSTALL_DIR/cmavnode ]; then
+   echo "No existing cmavnode directory"
+else
+    echo "directory cmavnode already exists!"
+    echo "cleaning existing cmavnode directory!"
+    rm -rf $INSTALL_DIR/cmavnode
+fi
+
 # Clone repository and configure/build/install
 cd /home/$INSTALL_USER/GitHub
  rm -rf cmavnode
@@ -31,12 +40,5 @@ cmake ..
 make
 #sudo make install
 
-# Check if cmavnode directory already exists at $INSTALL_DIR
-if [ ! -d $INSTALL_DIR/cmavnode ]; then
-   echo "No existing cmavnode directory"
-else
-    echo "directory cmavnode already exists!"
-    echo "cleaning existing cmavnode directory!"
-    rm -rf $INSTALL_DIR/cmavnode
-fi
+
 
