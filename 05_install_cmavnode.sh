@@ -14,7 +14,7 @@ set -x
 . config.env
 
 # Get required packages
-apt-get install libboost-all-dev cmake libconfig++-dev libreadline-dev
+apt-get install -y libboost-all-dev cmake libconfig++-dev libreadline-dev
 
 # Check if GitHub folder already exists
 if [ ! -d /home/$INSTALL_USER/GitHub ]; then
