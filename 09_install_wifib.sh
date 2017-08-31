@@ -25,6 +25,7 @@ apt-get install -y libjpeg8-dev indent libfreetype6-dev ttf-dejavu-core # Needed
 apt-get install -y libsdl1.2-dev # For WifiBroadcast_rc
 #apt-get install -y libsdl2-dev # For WifiBroadcast_rc
 apt-get install -y dos2unix # convert text files from /boot from dos format to unix
+apt-get install -y socat
 
 # Check if GitHub folder already exists
 if [ ! -d /home/$INSTALL_USER/GitHub ]; then
