@@ -42,4 +42,60 @@ make dataflash_logger
 cp dataflash_logger $INSTALL_DIR/dflogger/dataflash_logger
 
 
+# Copy preconfigured mavlink-router.conf to INSTALL_DIR/mavink-router/
+cp $SETUP_DIR/dflogger.txt /boot/dflogger.txt 
 
+# Create mavlink-router start script
+cat > $INSTALL_DIR/dflogger/start_dflogger.sh << \EOF
+#!/bin/bash
+#
+
+# dflogger
+DFLOGGER_DIR=/opt/mavlink-router
+DFLOGGER_LOG=/opt/log/services
+
+# Get dflogger.txt from /boot and conver to DFLOGGER_DIR/dflogger.conf
+DETECT_CONF=`ls /boot | grep -c dflogger.txt`
+if [ "$DETECT_CONF" == "0" ]; then
+echo "No configuration file found for dfloggerr!"
+exit 1
+else
+echo "Getting configuration file.."
+dos2unix -n /boot/dflogger.txt $DFLOGGER_DIR/dflogger.conf
+fi
+
+# Start Mavlink-router
+$DFLOGGER_DIR/data_flashlogger -d -c $DFLOGGER_DIR/dflogger.conf > $DFLOGGER_LOG/start_dflogger.log 2>&1
+EOF
+
+add executible permissions
+chmod +x $INSTALL_DIR/dflogger/start_dflogger.sh
+
+# Create directory for  dflogger logs
+   if [ ! -d /opt/log ]; then
+   echo "No existing log directory"
+   mkdir /opt/log
+   else
+    echo "log directory already exists!"
+   fi
+
+# Create systemd unit file
+cat > /etc/systemd/system/dflogger.service << \EOF
+[Unit]
+Description=Data Flash Logger
+
+[Service]
+Type=simple
+ExecStart=/opt/dfloggerr/start_dflogger.sh
+ExecReload=/bin/kill -HUP $MAINPID
+Restart=on-failure
+
+[Install]
+WantedBy=multi-user.target
+Alias=dflogger.service
+EOF
+
+# Create symlink and reload systemctl and start mavink-router
+systemctl daemon-reload
+systemctl start dflogger.service
+systemctl status dflogger.service -l
