@@ -82,8 +82,8 @@ arm_freq=1000
 over_voltage=4
 
 # overclock CORE/GPU/SDRAM for less latency and higher data troughput
-gpu_freq=400
-sdram_freq=433
+gpu_freq=500
+sdram_freq=500
 
 # speed-up booting
 bootcode_delay=0
