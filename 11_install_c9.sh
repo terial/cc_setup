@@ -53,7 +53,7 @@ set -x
 
 DIR_C9SDK=/opt/c9sdk
 
-# Get mavlink-router.txt from /boot and conver to MAVLINK_ROUTER_DIR/mavlink-router.conf
+# Get mavlink-router.txt from /boot and conver to C9SDK_DIR/c9sdk.conf
 DETECT_CONF=`ls /boot | grep -c c9sdk.txt`
 if [ "$DETECT_CONF" == "0" ]; then
 echo "No configuration file found for Cloud9 SDK!"
