@@ -115,8 +115,8 @@ Alias=cmavnode.service
 EOF
 
 # Create symlink and reload systemctl and start cmavnode
-systemctl daemon-reload
-systemctl start cmavnode.service
-systemctl status cmavnode.service -l
+#systemctl daemon-reload
+#systemctl start cmavnode.service
+#systemctl status cmavnode.service -l
 
 
