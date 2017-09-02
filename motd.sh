@@ -58,10 +58,14 @@ echo "Load Averages......: ${one}, ${five}, ${fifteen} (1, 5, 15 min)"
 echo "Memory.............: $(free -m | awk 'NR==2 { printf "Total: %sMB, Used: %sMB, Free: %sMB",$2,$3,$4; }')"
 echo "Running Processes..: `ps ax | wc -l | tr -d " "`"
 echo "eth0 IP Address....: `/sbin/ifconfig eth0 | /bin/grep "inet addr" | /usr/bin/cut -d ":" -f 2 | /usr/bin/cut -d " " -f 1`"
+
 echo "wlan0 IP Address...: `/sbin/ifconfig wlan0 | /bin/grep "inet addr" | /usr/bin/cut -d ":" -f 2 | /usr/bin/cut -d " " -f 1`"
 echo "wlan1 IP Address...: `/sbin/ifconfig wlan1 | /bin/grep "inet addr" | /usr/bin/cut -d ":" -f 2 | /usr/bin/cut -d " " -f 1`"
 echo "Storage Space......: $(df -h ~ | awk 'NR==2 { printf "Total: %sB, Used: %sB, Free: %sB",$2,$3,$4; }')"
 echo
+echo "/etc/udev/rules.d/70-persistent-net.rules have been generated for NICS "
+echo
+echo "intwifi0 IP Address...: `/sbin/ifconfig intwifi0 | /bin/grep "inet addr" | /usr/bin/cut -d ":" -f 2 | /usr/bin/cut -d " " -f 1`"
 echo "${bgr}${bold}================== Companion Computer Information ====+=============${reset}"
 echo "Mavlink-Router service logging dataflash to /opt/log/dataflash and accessible with Samba (R+W)"
 echo "Flight components logging to /opt/log/services and accessible with Samba (RO)"
