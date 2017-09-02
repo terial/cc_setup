@@ -66,7 +66,7 @@ cp $SETUP_DIR/motd.sh /etc/profile.d/motd.sh
 chmod 755 /etc/profile.d/motd.sh
 
 # Update packages
-sudo apt-get update
+#sudo apt-get update
 
 # Make sure install shell scripts are executable
 chmod 755 *.sh
