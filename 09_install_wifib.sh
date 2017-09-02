@@ -55,6 +55,7 @@ cp /home/$INSTALL_USER/GitHub/cc_wifib/config/apconfig.txt /boot/apconfig.txt
 cp /home/$INSTALL_USER/GitHub/cc_wifib/config/joyconfig.txt /boot/joyconfig.txt
 cp /home/$INSTALL_USER/GitHub/cc_wifib/config/osdconfig.txt /boot/osdconfig.txt
 cp /home/$INSTALL_USER/GitHub/cc_wifib/config/wifibroadcast.txt /boot/wifibroadcast.txt
+cp /home/$INSTALL_USER/GitHub/cc_wifib/config/wifibroadcast.txt /boot/wifibroadcast_bitrates.txt
 
 # Copy wifibroadcast files to DIR_INSTALL_WIFIBROADCAST
  rm -rf $DIR_INSTALL_WIFIBROADCAST # remove existing wifibroadcast if it exists
