@@ -77,7 +77,8 @@ apt-get install -y \
 	python-numpy \
 	python-dev \
 	libxml2-dev \
-	libxslt-dev
+	libxslt-dev \
+	wiringpi
 
 #Install packages using pip
 pip install future
