@@ -221,7 +221,6 @@ Restart=on-failure
 
 [Install]
 WantedBy=multi-user.target
-Alias=mavlink-router.service
 EOF
 
 # Create symlink and reload systemctl and start mavink-router
